@@ -1,0 +1,5 @@
+# atom live server plugin file
+.atom-live-server.json
+
+# macOS files
+.DS_Store
