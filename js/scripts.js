@@ -85,6 +85,7 @@ var pokemonRepository = (function() {
     $($modalContainer).html('');
     // Modal structure
     var modal = $('<div class="modal-content"></div>');
+    var modalheader = $('<div class="modal-header"></div>');
     var modalbody = $('<div class="modal-body"></div>');
     var modalclose = $('<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>')
 
@@ -149,18 +150,11 @@ pokemonRepository.loadList().then(function() {
 });
 
 // Search function in the bottom Navbar
-$(document).ready(function() {
+$(document).ready(function(){
   $("#myInput").on("keyup", function() {
-    var value = $(this)
-      .val()
-      .toLowerCase();
-    $("#PokemonList *").filter(function() {
-      $(this).toggle(
-        $(this)
-          .text()
-          .toLowerCase()
-          .indexOf(value) > -1
-      );
+    var value = $(this).val().toLowerCase();
+    $("#gridContainer *").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
   });
 });

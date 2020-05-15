@@ -92,7 +92,7 @@ img {
 
 .form-control:focus,
 .form-control:active {
-  outline: none !important;
+  outline: none;
   box-shadow: none;
   background-color: #e6edf3;
   opacity: 0.8;
@@ -124,7 +124,7 @@ img {
 /* to remove the ugly blue outline when Button active */
 .btn:active,
 .btn:focus {
-  outline-color: none;
+  outline-color: transparent;
   box-shadow:
     5px 5px 10px #c6cacc,
     -5px -5px 10px #fff;
@@ -132,7 +132,7 @@ img {
 
 .btn:active:hover,
 .btn:focus:hover {
-  outline-color: none;
+  outline-color: transparent;
   box-shadow:
     inset 5px 5px 10px #c6cacc,
     inset -5px -5px 10px #fdffff;
@@ -145,6 +145,7 @@ img {
   position: relative;
   top: -35px;
   right: -35px;
+  padding: 20px;
 }
 
 .close:hover {
@@ -217,13 +218,12 @@ img {
   }
 }
 
-/* colorchange by Pokemon type */
-
 /* disables the second type if undefined */
 #undefined {
   display: none;
 }
 
+/* colorchange by Pokemon type */
 .bug {
   background-color: rgba(116, 146, 81, 0.3);
 }
@@ -285,7 +285,6 @@ img {
 }
 
 /* changes the webiste into Darkmode */
-
 @media (prefers-color-scheme: dark) {
   body {
     background-color: #444;
@@ -361,7 +360,7 @@ img {
 
   .btn:active,
   .btn:focus {
-    outline-color: none;
+    outline-color: transparent;
     box-shadow:
       5px 5px 10px #393939,
       -5px -5px 10px #4f4f4f;
@@ -369,7 +368,7 @@ img {
 
   .btn:active:hover,
   .btn:focus:hover {
-    outline-color: none;
+    outline-color: transparent;
     box-shadow:
       inset 5px 5px 10px #393939,
       inset -5px -5px 10px #4f4f4f;
