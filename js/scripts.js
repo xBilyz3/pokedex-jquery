@@ -14,22 +14,29 @@ var pokemonRepository = (function() {
   function getAll() {
     return repository;
   }
-
-  var $pokemonList = $('.pokemon-list');
-
-  // create pokemon button inside of an unordered list
-  function addListItem(pokemon) {
+  // querySelector to Bootstrap Grid Container
+  var $pokemonGrid = $('#gridContainer');
+  // create pokemon button inside of Bootstrap Grid Container
+  function addcolumnItem(pokemon) {
     // create <li> element
-    var $listItem = $('<li></li>');
+    var $columnItem = $('<li id="PokemonList"></li>');
+    // add Class to the make the Button fit on Small ≥576px Screens
+    $columnItem.addClass('col-12 col-sm-6 py-3 px-3');
+    // add Class to the make the Button fit on all other Screens
+    $columnItem.addClass('col-md-4');
     // create a button that contains inside the <li> an shows the pokemon name
-    var $button = $('<button class="pokemon-button">' + pokemon.name + '</button>');
+    var $button = $('<button type="button" data-toggle="modal" data-target="#exampleModalCenter"></button>');
+    $button.addClass('btn btn-block');
+
+    $button.text(pokemon.name);
     // append the button to the <li>
-    $listItem.append($button);
-    // append the <li> to the <ul>
-    $pokemonList.append($listItem);
+    $columnItem.append($button);
+    // append the <li> to the Bootstrap Grid Container
+    $pokemonGrid.append($columnItem);
     // add an event listener to each button that logs pokemon name to the console
     $button.on('click', function(event) {
       showDetails(pokemon);
+
     });
   }
 
@@ -72,20 +79,14 @@ var pokemonRepository = (function() {
   }
 
   function showModal(pokemon) {
-    // blurred background behind the modal
-    var $mainContent = $('#main-contant');
-    $mainContent.addClass('is-blurred');
 
-    var $modalContainer = $('#modal-container');
-    $modalContainer.addClass('is-visible');
-
+    var $modalContainer = $('.modal-dialog');
     // Clear all existing modal content
     $($modalContainer).html('');
-
     // Modal structure
-    var modal = $('<div class="modal"></div>');
-    var modalheader = $('<div class="modal-header"></div>');
+    var modal = $('<div class="modal-content"></div>');
     var modalbody = $('<div class="modal-body"></div>');
+    var modalclose = $('<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>')
 
     // Add the new modal content
     var namePokemon = $('<h1>' + pokemon.name + '</h1>');
@@ -94,49 +95,30 @@ var pokemonRepository = (function() {
     var heightPokemon = $('<p>' + pokemon.height + '</p>');
 
     var typesPokemontext = $('<h2>' + 'types' + '</h2>');
-    var typesPokemon1 = $('<p class="' + pokemon.types[0] + '">' + pokemon.types[0] + '</p>');
-    var typesPokemon2 = $('<p class="' + pokemon.types[1] + '">' + pokemon.types[1] + '</p>');
+    var typesPokemon1 = $('<p>' + pokemon.types[0] + '</p>');
+    var typesPokemon2 = $('<p id="' + pokemon.types[1] + '">' + pokemon.types[1] + '</p>');
 
+
+    // Add the image animation with changing colors by types
     var imgContainer = $('<div id="img-container"></div>');
     var imgPokemon = $('<div class="image"><img src="' + pokemon.imageUrl + '"></div>');
-    var imgCircle =$('<div class="circle"></div>');
-    var imgCircle0 =$('<div class="image-circle" style="animation-delay: -3s"></div>');
-    var imgCircle0 =$('<div class="image-circle" style="animation-delay: -3s"></div>');
-    var imgCircle1 =$('<div class="image-circle" style="animation-delay: -2s"></div>');
-    var imgCircle2 =$('<div class="image-circle" style="animation-delay: -1s"></div>');
-    var imgCircle3 =$('<div class="image-circle" style="animation-delay: 0s"></div>');
+    var imgCircle = $('<div class="image-circle"></div>');
+    imgCircle.addClass(pokemon.types[0])
+    var imgCircle0 = $('<div class="image-circle" style="animation-delay: -3s"></div>');
+    imgCircle0.addClass(pokemon.types[0])
+    var imgCircle1 = $('<div class="image-circle" style="animation-delay: -2s"></div>');
+    imgCircle1.addClass(pokemon.types[0])
+    var imgCircle2 = $('<div class="image-circle" style="animation-delay: -1s"></div>');
+    imgCircle2.addClass(pokemon.types[0])
+    var imgCircle3 = $('<div class="image-circle" style="animation-delay: 0s"></div>');
+    imgCircle3.addClass(pokemon.types[0])
 
     imgContainer.append(imgPokemon);
     imgContainer.append(imgCircle, imgCircle0, imgCircle1, imgCircle2, imgCircle3);
 
-
-    var closeButtonElement = $('<button class="modal-close">✖</button>');
-    // to close the Modal by pressing the Close Button
-    $(closeButtonElement).click(function() {
-      $($mainContent).removeClass('is-blurred'); $($modalContainer).removeClass('is-visible', 'animate__animated animate__bounce');
-    });
-
-    // to close the modal by pressing ESC
-    $(document).on('keydown', function(event) {
-      if (event.key == "Escape") {
-        $($mainContent).removeClass('is-blurred');
-        $($modalContainer).removeClass('is-visible');
-      }
-    });
-
-    // to close the Modal by pressing outside the modal
-    $(document).mouseup(function(e) {
-      var modal = $(".modal");
-      if (!modal.is(e.target) && modal.has(e.target).length === 0) {
-        $($mainContent).removeClass('is-blurred');
-        $($modalContainer).removeClass('is-visible');
-      }
-    });
-
-    modal.append(modalheader);
-    modalheader.append(imgContainer);
-    modalheader.append(closeButtonElement);
     modal.append(modalbody);
+    modalbody.append(modalclose);
+    modalbody.append(imgContainer);
     modalbody.append(namePokemon);
     modalbody.append(heigthPokemontext);
     modalbody.append(heightPokemon);
@@ -145,11 +127,10 @@ var pokemonRepository = (function() {
     modalbody.append(typesPokemon2);
     $modalContainer.append(modal);
   }
-
   // exposed public functions
   return {
     add: add,
-    addListItem: addListItem,
+    addcolumnItem: addcolumnItem,
     getAll: getAll,
     showDetails: showDetails,
     showModal: showModal,
@@ -158,11 +139,28 @@ var pokemonRepository = (function() {
   };
 })();
 
-var $pokemonList = document.querySelector('.pokemon-list');
-// append each pokemon of the repository to the function addListItemp
+var $pokemonList = $('.pokemon-list');
+// append each pokemon of the repository to the function addcolumnItem
 pokemonRepository.loadList().then(function() {
   // Now the data is loaded!
   pokemonRepository.getAll().forEach(function(pokemon) {
-    pokemonRepository.addListItem(pokemon);
+    pokemonRepository.addcolumnItem(pokemon);
+  });
+});
+
+// Search function in the bottom Navbar
+$(document).ready(function() {
+  $("#myInput").on("keyup", function() {
+    var value = $(this)
+      .val()
+      .toLowerCase();
+    $("#PokemonList *").filter(function() {
+      $(this).toggle(
+        $(this)
+          .text()
+          .toLowerCase()
+          .indexOf(value) > -1
+      );
+    });
   });
 });
