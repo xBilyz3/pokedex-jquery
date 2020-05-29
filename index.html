@@ -9,49 +9,47 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <!-- Animation CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
-
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" />
-  <link rel="stylesheet" type="text/css" href="css/styles.css" />
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" type="text/css" href="dist/styles.min.css" />
 </head>
 
 <body>
-
+  <!-- Preloader -->
+  <div class="preloader">
+    <img class="preloader_img" src="img/preloader.gif">
+  </div>
   <!-- Navbar Top -->
   <nav id="navbar_top" class="navbar fixed-top animate__animated">
     <div class="col-12 col-sm-8 col-md-8">
-      <a class="" href="https://www.vecteezy.com/free-vector/pokedex" target="_blank">
+      <a href="https://www.vecteezy.com/free-vector/pokedex" target="_blank">
         <img src="img/logo.svg" class="navbar-logo mx-auto d-block float-md-left" alt="Pokedex Vectors by Vecteezy">
       </a>
     </div>
-    <div>
+    <div class="col-3 col-sm-3 col-md-3">
       <a class="d-none d-sm-block" href="https://www.vecteezy.com/free-vector/pokedex" target="_blank">
         <img src="img/pikachu.svg" class="navbar-item float-right" alt="Grass Vectors by Vecteezy">
       </a>
     </div>
   </nav>
-
   <!-- belongs to: function addcolumnItem(pokemon) -->
   <div class="container-fluid px-0 animate__animated">
     <ul class="row no-gutters" id="gridContainer"></ul>
   </div>
-
   <!-- creates the Searchbar at the bottem -->
   <nav id="navbar_bottom" class="navbar fixed-bottom px-1 py-1 animate__animated">
     <input class="form-control" id="myInput" type="search" placeholder="search" aria-label="Search">
   </nav>
-
   <!-- Modal, belongs to: function showModal(pokemon) -->
   <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
     </div>
   </div>
-
   <!-- Optional JavaScript -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-  <script src="js/scripts.js"></script>
+  <script src="dist/scripts.min.js"></script>
 </body>
 
 </html>
