@@ -5,27 +5,26 @@ body {
 
 h1 {
   background-color: #ecf0f3;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px #717375,
+              -5px -5px 10px #fff;
   color: #333;
   font-size: 22px;
-  opacity: 0.9;
   letter-spacing: 2px;
-  text-transform: uppercase;
   margin: 25px;
+  opacity: 0.8;
   padding: 20px 0;
-  border-radius: 10px;
-  box-shadow:
-    5px 5px 10px #717375,
-    -5px -5px 10px #fff;
   text-align: center;
+  text-transform: uppercase;
 }
 
 h2 {
   color: #333;
   font-size: 10px;
-  opacity: 0.5;
-  text-transform: uppercase;
-  padding-top: 30px;
   margin: auto;
+  opacity: 0.5;
+  padding-top: 30px;
+  text-transform: uppercase;
 }
 
 ul {
@@ -35,117 +34,144 @@ ul {
 
 p {
   color: #333;
+  display: inline-block;
   font-size: 15px;
   margin: 15px 20px;
   text-align: center;
-  display: inline-block;
 }
 
 img {
-  /* Safari 6.0 - 9.0 */
   -webkit-filter: grayscale(50%);
-  filter: grayscale(50%);
+          filter: grayscale(50%);
+}
+
+/* Preloader */
+.preloader {
+  background-color: #fff;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+.preloader_img {
+  display: block;
+  height: 300px;
+  left: 50%;
+  margin: -150px 0 0 -150px;
+  position: relative;
+  top: 50%;
+  width: 300px;
 }
 
 /* Header */
 #navbar_top {
-  animation: fadeInDown;
-  animation-duration: 2s;
+  -webkit-animation: fadeInDown;
+          animation: fadeInDown;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
   background-color: #ecf0f3;
   border-radius: 30px;
-  box-shadow:
-    10px 10px 20px #acafb1,
-    -10px -10px 20px #fff;
-  max-height: 110px;
+  box-shadow: 10px 10px 20px #acafb1,
+              -10px -10px 20px #fff;
   margin: 25px 20px 0;
-  padding-top: 20px;
+  max-height: 120px;
+  padding: 0;
 }
 
 .navbar-logo {
-  min-width: 230px;
   max-width: 340px;
+  min-width: 230px;
+  position: relative;
+  top: 20px;
 }
 
 .navbar-item {
-  min-width: 100px;
   max-width: 100px;
+  min-width: 100px;
+  position: relative;
+  right: 10px;
+  top: 20px;
 }
 
 /* Footer Search */
 #navbar_bottom {
-  animation: fadeInDown;
-  animation-duration: 2s;
+  -webkit-animation: fadeInDown;
+          animation: fadeInDown;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
   background-color: #ecf0f3;
   border-radius: 15px;
-  box-shadow:
-    10px 10px 20px #acafb1,
-    -10px -10px 20px #fff;
+  box-shadow: 10px 10px 20px #acafb1,
+              -10px -10px 20px #fff;
   margin: 0 20px 20px 25%;
 }
 
 .form-control {
   background-color: #ecf0f3;
   border: none;
-  box-shadow: none;
   border-radius: 15px;
+  box-shadow: none;
 }
 
 .form-control:focus,
 .form-control:active {
-  outline: none;
-  box-shadow: none;
   background-color: #e6edf3;
-  opacity: 0.8;
+  box-shadow: none;
   color: #333;
+  opacity: 0.8;
+  outline: none;
 }
 
 /* Grid Button */
 .btn-block {
-  animation: fadeInUp;
-  animation-duration: 2s;
+  -webkit-animation: fadeInUp;
+          animation: fadeInUp;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
   border-radius: 12px;
-  letter-spacing: 3px;
-  box-shadow:
-    5px 5px 10px #c6cacc,
-    -5px -5px 10px #fff;
+  box-shadow: 5px 5px 10px #c6cacc,
+              -5px -5px 10px #fff;
+  color: rgb(51, 51, 51);
   color: rgba(51, 51, 51, 0.5);
+  letter-spacing: 3px;
   padding: 30px;
   text-transform: uppercase;
 }
 
 .btn:hover {
   background-color: #e6edf3;
+  box-shadow: inset 5px 5px 10px #c6cacc,
+              inset -5px -5px 10px #fdffff;
+  color: rgb(51, 51, 51);
   color: rgba(51, 51, 51, 1);
-  box-shadow:
-    inset 5px 5px 10px #c6cacc,
-    inset -5px -5px 10px #fdffff;
 }
 
 /* to remove the ugly blue outline when Button active */
 .btn:active,
 .btn:focus {
+  box-shadow: 5px 5px 10px #c6cacc,
+              -5px -5px 10px #fff;
   outline-color: transparent;
-  box-shadow:
-    5px 5px 10px #c6cacc,
-    -5px -5px 10px #fff;
 }
 
 .btn:active:hover,
 .btn:focus:hover {
+  box-shadow: inset 5px 5px 10px #c6cacc,
+              inset -5px -5px 10px #fdffff;
   outline-color: transparent;
-  box-shadow:
-    inset 5px 5px 10px #c6cacc,
-    inset -5px -5px 10px #fdffff;
 }
 
 /* Modal, belongs to: function showModal(pokemon) */
 .close {
   color: #333;
   font-size: 20px;
-  position: relative;
-  top: -35px;
-  right: -35px;
   padding: 20px;
+  position: relative;
+  right: -35px;
+  top: -35px;
 }
 
 .close:hover {
@@ -154,7 +180,7 @@ img {
 
 .close:focus,
 .close:active {
-  outline: none !important;
+  outline: none;
 }
 
 .modal {
@@ -170,11 +196,10 @@ img {
 .modal-body {
   background-color: #e6edf3;
   border-radius: 30px;
-  box-shadow:
-    inset 5px 5px 10px #717375,
-    inset -5px -5px 10px #fff;
-  text-align: center;
+  box-shadow: inset 5px 5px 10px #717375,
+              inset -5px -5px 10px #fff;
   padding-bottom: 60px;
+  text-align: center;
 }
 
 /* creates the Image animation */
@@ -182,9 +207,9 @@ img {
   display: flex;
   height: 200px;
   justify-content: center;
+  margin-top: 50px;
   overflow: hidden;
   text-align: center;
-  margin-top: 50px;
 }
 
 .image {
@@ -196,25 +221,39 @@ img {
 }
 
 .image-circle {
-  border-radius: 50%;
+  -webkit-animation: scaleIn 4s infinite cubic-bezier(0.36, 0.11, 0.89, 0.32);
+          animation: scaleIn 4s infinite cubic-bezier(0.36, 0.11, 0.89, 0.32);
+  background-color: rgb(51, 51, 51);
   background-color: rgba(51, 51, 51, 0.3);
-  width: 250px;
+  border-radius: 50%;
   height: 60px;
+  margin-top: 50px;
   position: absolute;
   top: 110px;
-  margin-top: 50px;
-  animation: scaleIn 4s infinite cubic-bezier(0.36, 0.11, 0.89, 0.32);
+  width: 250px;
+}
+
+@-webkit-keyframes scaleIn {
+  from {
+    opacity: 0.5;
+    transform: scale(0.3, 0.3);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(1.3, 1.3);
+  }
 }
 
 @keyframes scaleIn {
   from {
-    transform: scale(0.3, 0.3);
     opacity: 0.5;
+    transform: scale(0.3, 0.3);
   }
 
   to {
-    transform: scale(1.3, 1.3);
     opacity: 0;
+    transform: scale(1.3, 1.3);
   }
 }
 
@@ -225,62 +264,77 @@ img {
 
 /* colorchange by Pokemon type */
 .bug {
+  background-color: rgb(116, 146, 81);
   background-color: rgba(116, 146, 81, 0.3);
 }
 
 .dragon {
+  background-color: rgb(83, 164, 207);
   background-color: rgba(83, 164, 207, 0.3);
 }
 
 .electric {
+  background-color: rgb(255, 189, 0);
   background-color: rgba(255, 189, 0, 0.3);
 }
 
 .fairy {
+  background-color: rgb(253, 185, 233);
   background-color: rgba(253, 185, 233, 0.3);
 }
 
 .fighting {
+  background-color: rgb(213, 103, 34);
   background-color: rgba(213, 103, 34, 0.3);
 }
 
 .fire {
+  background-color: rgb(255, 61, 61);
   background-color: rgba(255, 61, 61, 0.3);
 }
 
 .flying {
+  background-color: rgb(141, 219, 243);
   background-color: rgba(141, 219, 243, 0.3);
 }
 
 .ghost {
+  background-color: rgb(121, 87, 174);
   background-color: rgba(121, 87, 174, 0.3);
 }
 
 .grass {
+  background-color: rgb(50, 183, 106);
   background-color: rgba(50, 183, 106, 0.3);
 }
 
 .ground {
+  background-color: rgb(107, 80, 0);
   background-color: rgba(107, 80, 0, 0.3);
 }
 
 .ice {
+  background-color: rgb(20, 119, 150);
   background-color: rgba(20, 119, 150, 0.3);
 }
 
 .poison {
+  background-color: rgb(216, 80, 210);
   background-color: rgba(216, 80, 210, 0.3);
 }
 
 .psychic {
+  background-color: rgb(243, 102, 185);
   background-color: rgba(243, 102, 185, 0.3);
 }
 
 .rock {
+  background-color: rgb(156, 156, 156);
   background-color: rgba(156, 156, 156, 0.3);
 }
 
 .water {
+  background-color: rgb(80, 153, 216);
   background-color: rgba(80, 153, 216, 0.3);
 }
 
@@ -292,9 +346,8 @@ img {
 
   h1 {
     background-color: #444;
-    box-shadow:
-      5px 5px 10px #393939,
-      -5px -5px 10px #4f4f4f;
+    box-shadow: 5px 5px 10px #393939,
+                -5px -5px 10px #4f4f4f;
     color: #fff;
   }
 
@@ -309,69 +362,65 @@ img {
   img {
     /* Safari 6.0 - 9.0 */
     -webkit-filter: grayscale(40%);
-    filter: grayscale(40%);
+            filter: grayscale(40%);
   }
 
   #navbar_top {
     background-color: #444;
-    box-shadow:
-      10px 10px 20px #393939,
-      -10px -10px 20px #4f4f4f;
+    box-shadow: 10px 10px 20px #393939,
+                -10px -10px 20px #4f4f4f;
   }
 
   #navbar_bottom {
     background-color: #444;
-    box-shadow:
-      10px 10px 20px #393939,
-      -10px -10px 20px #4f4f4f;
+    box-shadow: 10px 10px 20px #393939,
+                -10px -10px 20px #4f4f4f;
   }
 
   .form-control {
     background-color: #444;
     border: none;
-    box-shadow: none;
     border-radius: 15px;
+    box-shadow: none;
   }
 
   .form-control:focus,
   .form-control:active {
-    outline: none !important;
-    box-shadow: none;
     background-color: #474747;
-    opacity: 0.8;
+    box-shadow: none;
     color: #fff;
+    opacity: 0.8;
+    outline: none;
   }
 
   .btn-block {
     background-color: #444;
-    box-shadow:
-      5px 5px 10px #393939,
-      -5px -5px 10px #4f4f4f;
+    box-shadow: 5px 5px 10px #393939,
+                -5px -5px 10px #4f4f4f;
+    color: rgb(251, 251, 251);
     color: rgba(251, 251, 251, 0.3);
   }
 
   .btn:hover {
     background-color: #474747;
-    box-shadow:
-      inset 5px 5px 10px #393939,
-      inset -5px -5px 10px #4f4f4f;
+    box-shadow: inset 5px 5px 10px #393939,
+                inset -5px -5px 10px #4f4f4f;
+    color: rgb(251, 251, 251);
     color: rgba(251, 251, 251, 0.7);
   }
 
   .btn:active,
   .btn:focus {
+    box-shadow: 5px 5px 10px #393939,
+                -5px -5px 10px #4f4f4f;
     outline-color: transparent;
-    box-shadow:
-      5px 5px 10px #393939,
-      -5px -5px 10px #4f4f4f;
   }
 
   .btn:active:hover,
   .btn:focus:hover {
+    box-shadow: inset 5px 5px 10px #393939,
+                inset -5px -5px 10px #4f4f4f;
     outline-color: transparent;
-    box-shadow:
-      inset 5px 5px 10px #393939,
-      inset -5px -5px 10px #4f4f4f;
   }
 
   .modal {
@@ -381,10 +430,9 @@ img {
   .modal-body {
     background-color: #474747;
     border-radius: 30px;
-    box-shadow:
-      inset 5px 5px 10px #393939,
-      inset -5px -5px 10px #4f4f4f;
-    text-align: center;
+    box-shadow: inset 5px 5px 10px #393939,
+                inset -5px -5px 10px #4f4f4f;
     padding-bottom: 60px;
+    text-align: center;
   }
 }
